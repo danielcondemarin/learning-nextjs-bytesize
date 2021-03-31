@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .product-card {
+    @apply w-full flex flex-col p-4 sm:w-1/2 lg:w-1/3;
+  }
+
+  .product-card .product-card-inner {
+    @apply flex flex-col flex-1 px-5 py-8 bg-white rounded-lg shadow-lg;
+  }
+
+  .product-card .product-card-footer {
+    @apply justify-center flex;
+  }
+
+  .product-card .product-card-footer button {
+    @apply text-white font-bold mx-2 mt-4 py-2 bg-yellow-500 px-4 rounded inline-flex items-center;
+  }
+
+  .product-card .product-card-header {
+    @apply flex-1;
+  }
+
+  .product-card .product-card-header h2 {
+    @apply text-gray-900 text-2xl py-3 font-bold leading-snug;
+  }
+
+  .product-card .product-card-header p {
+    @apply mt-2 text-lg;
+  }
+}
