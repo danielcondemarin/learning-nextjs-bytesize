@@ -1,0 +1,28 @@
+{
+  "name": "next-ecommerce",
+  "version": "1.0.0",
+  "description": "Mini ecommerce built in next.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielcondemarin/next-ecommerce.git"
+  },
+  "keywords": [
+    "Nextjs",
+    "Ecommerce"
+  ],
+  "author": "Daniel Conde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielcondemarin/next-ecommerce/issues"
+  },
+  "homepage": "https://github.com/danielcondemarin/next-ecommerce#readme",
+  "dependencies": {
+    "next": "^10.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
