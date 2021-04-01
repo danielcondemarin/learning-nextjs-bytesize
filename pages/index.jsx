@@ -1,13 +1,19 @@
 import ProductCard from "../components/ProductCard";
+import ProductData from "../data/products.json";
 
 const HomePage = () => {
+  const productCards = ProductData.map((product) => (
+    <ProductCard
+      key={product.img}
+      description={product.description}
+      imgUrl={product.img}
+      price={product.price}
+    />
+  ));
+
   return (
-    <div className="max-w-screen-xl mx-auto px-4">
-      <div className="-mx-4 flex flex-wrap">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+    <div className="product-list">
+      <div className="product-list-inner">{productCards}</div>
     </div>
   );
 };
