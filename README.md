@@ -26,5 +26,5 @@ $ npm run dev
   - React basics
   - Built in CSS support in Next.js
   - Testing
-
-2. Live Coding 
+2. Demo the finished app we'll be coding towards
+3. Start live coding 
