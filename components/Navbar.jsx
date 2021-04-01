@@ -49,8 +49,6 @@ const Navbar = () => {
         <div className="nav-links">
           <div className="nav-links-inner">
             <NavbarItem text={"Shop"} href={"/"} />
-            <NavbarItem text={"Contact"} href={"/contact"} />
-            <NavbarItem text={"About"} href={"/about"} />
           </div>
 
           <BasketIcon />
