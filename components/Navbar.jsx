@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 const NavbarItem = ({ href, text }) => {
   return (
     <div className="navbar-link">
-      <a href={href}>{text}</a>
+      <Link href={href}>
+        <a>{text}</a>
+      </Link>
     </div>
   );
 };
@@ -36,7 +40,9 @@ const Navbar = () => {
       <div className="nav-inner">
         <div className="nav-brand">
           <div>
-            <a href="#">Next.js E-Commerce</a>
+            <Link href="/">
+              <a>Next.js E-Commerce</a>
+            </Link>
           </div>
         </div>
 
