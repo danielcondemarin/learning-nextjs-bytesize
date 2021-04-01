@@ -4,8 +4,49 @@
 
 @layer utilities {
   /* *************** */
+  /* Navbar          */
+  /* *************** */
+
+  .nav {
+    @apply bg-white shadow mb-3;
+  }
+
+  .nav-inner {
+    @apply container mx-auto px-6 py-3 md:flex md:justify-between md:items-center;
+  }
+
+  .nav-brand {
+    @apply flex justify-between items-center;
+  }
+
+  .nav-brand a {
+    @apply text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700;
+  }
+
+  .nav-links {
+    @apply md:flex items-center;
+  }
+
+  .nav-links-inner {
+    @apply flex flex-col md:flex-row md:mx-6;
+  }
+
+  .navbar-link a {
+    @apply my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0;
+  }
+
+  .shopping-cart-icon {
+    @apply flex justify-center md:block;
+  }
+
+  .shopping-cart-icon a {
+    @apply relative text-gray-700 hover:text-gray-600;
+  }
+
+  /* *************** */
   /* Product Listing */
   /* *************** */
+
   .product-list {
     @apply container mx-auto;
   }
@@ -17,6 +58,7 @@
   /* ************* */
   /* Product Card  */
   /* ************* */
+
   .product-card {
     @apply hover:scale-105 flex flex-col p-2 bg-white shadow-lg cursor-pointer rounded transform duration-300 ease-in-out;
   }
@@ -25,12 +67,16 @@
     @apply flex justify-center;
   }
 
+  .product-card p {
+    @apply font-light;
+  }
+
   .product-card .product-card-header img {
     @apply rounded-t;
   }
 
   .price-tag {
-    @apply font-light text-gray-500 text-lg my-2;
+    @apply font-extrabold text-lg my-2;
   }
 
   .add-to-cart {
