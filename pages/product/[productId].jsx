@@ -1,4 +1,5 @@
 import ProductDetails from "../../components/ProductDetails";
+import ProductData from "../../data/products.json";
 
 const ProductDetailsPage = ({ productDetails }) => {
   const { price, img, description } = productDetails;
@@ -6,8 +7,9 @@ const ProductDetailsPage = ({ productDetails }) => {
 };
 
 export async function getServerSideProps(context) {
-  const products = require("../../data/products.json");
-  const productDetails = products.find((p) => p.id === context.query.productId);
+  const productDetails = ProductData.find(
+    (p) => p.id === context.query.productId
+  );
 
   return {
     props: { productDetails },

@@ -1,5 +1,5 @@
 import ProductData from "../../../data/products.json";
-import { addToBasket, getBasketProducts } from "../../../lib/dataAccess";
+import { addToBasket, getBasketProducts } from "../../../lib/basketDataAccess";
 
 const getProductById = (productId) => {
   const product = ProductData.find((p) => p.id === productId);
