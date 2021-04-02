@@ -44,7 +44,7 @@ const BasketIcon = ({ basketHasItems }) => {
 
 const Navbar = () => {
   const { basketProducts } = useContext(BasketContext);
-  const basketHasItems = basketProducts.length > 0;
+  const basketHasItems = basketProducts && basketProducts.length > 0;
 
   return (
     <nav className="nav">
