@@ -1,12 +1,29 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
+import BasketContext from "./BasketContext";
 
 const ProductCard = ({ productId, description, imgUrl, price }) => {
   const router = useRouter();
+  const { updateBasket } = useContext(BasketContext);
+
   const viewProductDetails = useCallback(() => {
     router.push(`/product/${productId}`);
   }, [router]);
+
+  const addToTrolley = useCallback(
+    async (e) => {
+      e.stopPropagation();
+
+      const response = await fetch(`/api/basket/${productId}`, {
+        method: "POST",
+      });
+
+      const result = await response.json();
+
+      updateBasket(result.basketProducts);
+    },
+    [router]
+  );
 
   return (
     <div className="product-card" onClick={viewProductDetails}>
@@ -17,11 +34,7 @@ const ProductCard = ({ productId, description, imgUrl, price }) => {
         <p className="price-tag">{price}</p>
         <p className="product-description">{description}</p>
       </div>
-      <div className="add-to-cart">
-        <Link href={`/product/${productId}`}>
-          <a>Add to cart</a>
-        </Link>
-      </div>
+      <button onClick={addToTrolley}>Add to trolley</button>
     </div>
   );
 };

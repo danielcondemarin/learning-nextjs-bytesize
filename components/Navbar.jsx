@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useContext } from "react";
+import BasketContext from "../components/BasketContext";
 
 const NavbarItem = ({ href, text }) => {
   return (
@@ -10,7 +12,11 @@ const NavbarItem = ({ href, text }) => {
   );
 };
 
-const BasketIcon = () => {
+const BasketIcon = ({ basketHasItems }) => {
+  const blueCircle = basketHasItems ? (
+    <span className="absolute top-0 left-0 rounded-full bg-indigo-500 text-white p-1 text-xs"></span>
+  ) : undefined;
+
   return (
     <div className="shopping-cart-icon">
       <a href="/basket">
@@ -28,13 +34,16 @@ const BasketIcon = () => {
             strokeLinejoin="round"
           />
         </svg>
-        <span className="absolute top-0 left-0 rounded-full bg-indigo-500 text-white p-1 text-xs"></span>
+        {blueCircle}
       </a>
     </div>
   );
 };
 
 const Navbar = () => {
+  const { basketProducts } = useContext(BasketContext);
+  const basketHasItems = basketProducts.length > 0;
+
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -51,7 +60,7 @@ const Navbar = () => {
             <NavbarItem text={"Shop"} href={"/"} />
           </div>
 
-          <BasketIcon />
+          <BasketIcon basketHasItems={basketHasItems} />
         </div>
       </div>
     </nav>

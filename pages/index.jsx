@@ -1,5 +1,6 @@
 import ProductCard from "../components/ProductCard";
 import ProductData from "../data/products.json";
+import { getBasketProducts } from "../lib/dataAccess";
 
 const HomePage = () => {
   const productCards = ProductData.map((product) => (
@@ -18,5 +19,13 @@ const HomePage = () => {
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  const basketProducts = getBasketProducts();
+
+  return {
+    props: { basketProducts },
+  };
+}
 
 export default HomePage;

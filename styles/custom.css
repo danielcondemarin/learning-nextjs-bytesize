@@ -72,15 +72,11 @@
   }
 
   .product-description {
-    @apply font-light text-sm text-center;
+    @apply font-light text-sm text-center mb-3;
   }
 
-  .add-to-cart {
-    @apply px-2 mt-auto;
-  }
-
-  .add-to-cart a {
-    @apply block bg-yellow-300 py-2 px-2 text-gray-600 text-center rounded shadow-lg uppercase mt-6 hover:bg-yellow-400 hover:text-gray-600 duration-300 ease-in-out;
+  .product-card button {
+    @apply mt-auto block bg-yellow-300 py-2 px-2 text-gray-600 text-center text-sm rounded shadow-lg uppercase mt-6 hover:bg-yellow-400 hover:text-gray-600 duration-300 ease-in-out;
   }
 
   /* *****************/
