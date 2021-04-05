@@ -1,8 +1,21 @@
+import { useState, useCallback } from "react";
 import { getBasketProducts } from "../lib/basketDataAccess";
 
 const BasketPage = ({ basketProducts }) => {
-  const basketProductElements = basketProducts.map(
-    ({ price, description, img }) => (
+  const [products, setBasketProducts] = useState(basketProducts);
+
+  const removeItem = useCallback(async (productId) => {
+    const response = await fetch(`/api/basket/${productId}`, {
+      method: "DELETE",
+    });
+
+    const data = await response.json();
+
+    setBasketProducts(data.basketProducts);
+  }, []);
+
+  const basketProductElements = products.map(
+    ({ id, price, description, img }) => (
       <tr key={description}>
         <td className="thumbnail">
           <a href="#">
@@ -10,18 +23,14 @@ const BasketPage = ({ basketProducts }) => {
           </a>
         </td>
         <td>
-          <a href="#">
-            <p className="">{description}</p>
-            <form action="" method="POST">
-              <button type="submit">
-                <small>(Remove item)</small>
-              </button>
-            </form>
-          </a>
+          <p>{description}</p>
+          <button onClick={() => removeItem(id)}>
+            <small>(Remove item)</small>
+          </button>
         </td>
         <td className="qty-column">
           <div className="w-12 h-10">
-            <input type="number" value="2" />
+            <input type="number" defaultValue="2" />
           </div>
         </td>
         <td className="text-right">
