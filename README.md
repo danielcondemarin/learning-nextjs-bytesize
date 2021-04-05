@@ -18,13 +18,15 @@ $ npm run dev
 - Background (i.e. What's Next.js)
 - What will be covered during the presentation:
   - Structure of a Next.js app. Cover special folders: `pages/`, `public/` and files: `_document`, `_app.js`
-  - Routing (File-system based)
-  - API routes
-  - Page rendering methods: SSR, SSG, SSR/SSG hybrid
-  - Deployment via Vercel and serverless-next.js
+  - [Routing](https://nextjs.org/docs/routing/introduction)
+  - [API routes](https://nextjs.org/docs/api-routes/introduction)
+  - [Page rendering methods](https://nextjs.org/docs/basic-features/data-fetching): SSR, SSG, SSR/SSG hybrid
+  - [Image Optimisation](https://nextjs.org/docs/basic-features/image-optimization)
+  - Deployment (if enough time)
 - What will *not* be covered
   - React basics
   - Built in CSS support in Next.js
   - Testing
 2. Demo the finished app we'll be coding towards
+
 3. Start live coding 
