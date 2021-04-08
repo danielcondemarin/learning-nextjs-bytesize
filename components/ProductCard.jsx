@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCallback, useContext } from "react";
 import BasketContext from "./BasketContext";
@@ -28,7 +29,7 @@ const ProductCard = ({ productId, description, imgUrl, price }) => {
   return (
     <div className="product-card" onClick={viewProductDetails}>
       <div className="product-card-header">
-        <img src={imgUrl} />
+        <Image src={imgUrl} alt={description} width={94.5} height={94.5} />
       </div>
       <div>
         <p className="price-tag">{price}</p>

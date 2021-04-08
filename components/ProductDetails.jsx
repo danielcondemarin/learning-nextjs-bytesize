@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ProductDetails = ({ price, img, description }) => {
   const [priceIntegerPart, priceFractionalPart] = price.split(".");
 
@@ -5,7 +7,7 @@ const ProductDetails = ({ price, img, description }) => {
     <div className="product-details">
       <div className="product-details-inner">
         <div className="product-details-image">
-          <img src={img} />
+          <Image src={img} alt={description} width={552} height={552} />
         </div>
         <div className="product-details-body">
           <h1 className="">{description}</h1>

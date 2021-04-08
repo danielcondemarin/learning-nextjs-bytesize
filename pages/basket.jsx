@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import { useState, useCallback } from "react";
 import { getBasketProducts } from "../lib/basketDataAccess";
 
@@ -24,9 +26,11 @@ const BasketPage = ({ basketProducts }) => {
     ([_, { id, qty, price, description, img }]) => (
       <tr key={description}>
         <td className="thumbnail">
-          <a href="#">
-            <img src={img} />
-          </a>
+          <Link href={`/product/${id}`}>
+            <a>
+              <Image src={img} alt={description} width={90} height={90} />
+            </a>
+          </Link>
         </td>
         <td>
           <p>{description}</p>
@@ -35,7 +39,7 @@ const BasketPage = ({ basketProducts }) => {
           </button>
         </td>
         <td className="qty-column">
-          <div className="w-12 h-10">
+          <div className="w-12 h-10 relative">
             <input
               type="number"
               defaultValue={qty}

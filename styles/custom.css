@@ -164,7 +164,7 @@
   }
 
   .qty-column input {
-    @apply w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black;
+    @apply w-full absolute bottom-1 font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black;
   }
 
   button.checkout {
