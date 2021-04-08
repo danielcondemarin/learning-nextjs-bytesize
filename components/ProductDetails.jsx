@@ -1,7 +1,21 @@
+import { useRouter } from "next/router";
+import { useCallback } from "react";
 import Image from "next/image";
 
-const ProductDetails = ({ price, img, description }) => {
+const ProductDetails = ({ id, price, img, description }) => {
   const [priceIntegerPart, priceFractionalPart] = price.split(".");
+  const router = useRouter();
+
+  const addToTrolley = useCallback(
+    async (e) => {
+      e.stopPropagation();
+
+      await fetch(`/api/basket/${id}`, {
+        method: "POST",
+      });
+    },
+    [router]
+  );
 
   return (
     <div className="product-details">
@@ -29,7 +43,7 @@ const ProductDetails = ({ price, img, description }) => {
             )}
           </div>
           <div className="product-details-add-to-basket">
-            <button>
+            <button onClick={addToTrolley}>
               <i></i> Add to trolley
             </button>
           </div>

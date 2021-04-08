@@ -84,7 +84,7 @@
   /* *****************/
 
   .product-details {
-    @apply bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative;
+    @apply h-screen bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative;
   }
 
   .product-details-inner {

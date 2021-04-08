@@ -2,8 +2,7 @@ import ProductDetails from "../../components/ProductDetails";
 import ProductData from "../../data/products.json";
 
 const ProductDetailsPage = ({ productDetails }) => {
-  const { price, img, description } = productDetails;
-  return <ProductDetails price={price} img={img} description={description} />;
+  return <ProductDetails {...productDetails} />;
 };
 
 export async function getServerSideProps(context) {
