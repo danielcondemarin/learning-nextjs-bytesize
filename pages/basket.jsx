@@ -14,8 +14,14 @@ const BasketPage = ({ basketProducts }) => {
     setBasketProducts(data.basketProducts);
   }, []);
 
-  const basketProductElements = products.map(
-    ({ id, price, description, img }) => (
+  const updateItemQty = useCallback(async (productId, qty) => {
+    await fetch(`/api/basket/${productId}/${qty}`, {
+      method: "POST",
+    });
+  });
+
+  const basketProductElements = Object.entries(products).map(
+    ([_, { id, qty, price, description, img }]) => (
       <tr key={description}>
         <td className="thumbnail">
           <a href="#">
@@ -30,7 +36,11 @@ const BasketPage = ({ basketProducts }) => {
         </td>
         <td className="qty-column">
           <div className="w-12 h-10">
-            <input type="number" defaultValue="2" />
+            <input
+              type="number"
+              defaultValue={qty}
+              onChange={(e) => updateItemQty(id, e.target.value)}
+            />
           </div>
         </td>
         <td className="text-right">
