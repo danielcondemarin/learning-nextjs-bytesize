@@ -50,7 +50,7 @@ const BasketIcon = ({ basketCount }) => {
 const Navbar = () => {
   const { basketProducts } = useContext(BasketContext);
 
-  const basketCount = Object.keys(basketProducts).length;
+  const basketCount = Object.keys(basketProducts || {}).length;
 
   return (
     <nav className="nav">

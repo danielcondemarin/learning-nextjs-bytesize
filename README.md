@@ -8,8 +8,16 @@ $ npm install
 
 ### Running the app. in development mode
 
+To start the next.js development server,
+
 ```
 $ npm run dev
+```
+
+You'll also need to spin up a local instance of DynamoDB:
+
+```
+$ npm run database:start
 ```
 
 ### Structure of the presentation

@@ -10,7 +10,7 @@ const getProductById = (productId) => {
   return product;
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const productId = req.query.productId;
   const product = getProductById(productId);
 
@@ -23,12 +23,12 @@ export default function handler(req, res) {
 
   switch (req.method) {
     case "POST":
-      addToBasket(product);
-      res.status(200).json({ basketProducts: getBasketProducts() });
+      await addToBasket(product);
+      res.status(200).json({ basketProducts: await getBasketProducts() });
       break;
     case "DELETE": {
-      removeFromBasket(productId);
-      res.status(200).json({ basketProducts: getBasketProducts() });
+      await removeFromBasket(productId);
+      res.status(200).json({ basketProducts: await getBasketProducts() });
       break;
     }
     default:

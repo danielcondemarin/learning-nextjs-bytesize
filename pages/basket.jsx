@@ -92,7 +92,7 @@ const BasketPage = ({ basketProducts }) => {
 };
 
 export async function getServerSideProps() {
-  const basketProducts = getBasketProducts();
+  const basketProducts = await getBasketProducts();
 
   return {
     props: { basketProducts },
