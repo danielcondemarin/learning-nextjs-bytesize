@@ -1,21 +1,10 @@
-import { useRouter } from "next/router";
-import { useCallback } from "react";
+import useTrolley from "../hooks/use-trolley";
 import Image from "next/image";
 
 const ProductDetails = ({ id, price, img, description }) => {
   const [priceIntegerPart, priceFractionalPart] = price.split(".");
-  const router = useRouter();
 
-  const addToTrolley = useCallback(
-    async (e) => {
-      e.stopPropagation();
-
-      await fetch(`/api/basket/${id}`, {
-        method: "POST",
-      });
-    },
-    [router]
-  );
+  const addToTrolley = useTrolley(id);
 
   return (
     <div className="product-details">
