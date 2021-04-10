@@ -1,19 +1,28 @@
 import ProductDetails from "../../components/ProductDetails";
-import { getBasketProducts } from "../../lib/basketStore";
-import { getProductByID } from "../../lib/productStore";
+import { getProductByID, getAllProducts } from "../../lib/productStore";
 
 const ProductDetailsPage = ({ productDetails }) => {
   return <ProductDetails {...productDetails} />;
 };
 
-export async function getServerSideProps(context) {
-  const [basketProducts, productDetails] = await Promise.all([
-    getBasketProducts(),
-    getProductByID(context.query.productId),
-  ]);
+export async function getStaticPaths() {
+  const allProducts = await getAllProducts();
+
+  const paths = allProducts.map(product => {
+    return { params: { productId: product.id }};
+  });
 
   return {
-    props: { productDetails, basketProducts },
+    paths,
+    fallback: false
+  };
+}
+
+export async function getStaticProps(context) {
+  const productDetails = await getProductByID(context.params.productId);
+
+  return {
+    props: { productDetails },
   };
 }
 

@@ -20,13 +20,11 @@ const HomePage = ({products}) => {
   );
 };
 
-export async function getServerSideProps() {
-  const [basketProducts, allProducts] = await Promise.all([
-    getBasketProducts(),
-    getAllProducts(),
-  ]);
+export async function getStaticProps() {
+  const allProducts = await getAllProducts();
 
-  const props = {basketProducts, products: allProducts};
+  const props = { products: allProducts };
+
   return {
     props,
   };
