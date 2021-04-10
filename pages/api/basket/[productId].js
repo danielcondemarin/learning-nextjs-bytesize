@@ -1,18 +1,13 @@
-import ProductData from "../../../data/products.json";
 import {
   addToBasket,
   removeFromBasket,
   getBasketProducts,
 } from "../../../lib/basketDataAccess";
-
-const getProductById = (productId) => {
-  const product = ProductData.find((p) => p.id === productId);
-  return product;
-};
+import { getProductByID } from "../../../lib/productStore";
 
 export default async function handler(req, res) {
   const productId = req.query.productId;
-  const product = getProductById(productId);
+  const product = await getProductByID(productId);
 
   if (!product) {
     res

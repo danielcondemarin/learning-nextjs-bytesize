@@ -1,9 +1,9 @@
 import ProductCard from "../components/ProductCard";
-import ProductData from "../data/products.json";
+import { getAllProducts } from "../lib/productStore";
 import { getBasketProducts } from "../lib/basketDataAccess";
 
-const HomePage = () => {
-  const productCards = ProductData.map((product) => (
+const HomePage = ({products}) => {
+  const productCards = products.map((product) => (
     <ProductCard
       key={product.id}
       productId={product.id}
@@ -21,10 +21,14 @@ const HomePage = () => {
 };
 
 export async function getServerSideProps() {
-  const basketProducts = await getBasketProducts();
+  const [basketProducts, allProducts] = await Promise.all([
+    getBasketProducts(),
+    getAllProducts(),
+  ]);
 
+  const props = {basketProducts, products: allProducts};
   return {
-    props: { basketProducts },
+    props,
   };
 }
 
