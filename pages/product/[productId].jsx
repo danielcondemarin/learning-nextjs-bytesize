@@ -1,5 +1,5 @@
 import ProductDetails from "../../components/ProductDetails";
-import { getBasketProducts } from "../../lib/basketDataAccess";
+import { getBasketProducts } from "../../lib/basketStore";
 import { getProductByID } from "../../lib/productStore";
 
 const ProductDetailsPage = ({ productDetails }) => {

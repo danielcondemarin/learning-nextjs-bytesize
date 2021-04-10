@@ -1,4 +1,4 @@
-import { updateProductQty } from "../../../../lib/basketDataAccess";
+import { updateProductQty } from "../../../../lib/basketStore";
 
 export default async function handler(req, res) {
   const productId = req.query.productId;

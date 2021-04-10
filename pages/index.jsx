@@ -1,6 +1,6 @@
 import ProductCard from "../components/ProductCard";
 import { getAllProducts } from "../lib/productStore";
-import { getBasketProducts } from "../lib/basketDataAccess";
+import { getBasketProducts } from "../lib/basketStore";
 
 const HomePage = ({products}) => {
   const productCards = products.map((product) => (

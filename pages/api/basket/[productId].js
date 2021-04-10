@@ -2,7 +2,7 @@ import {
   addToBasket,
   removeFromBasket,
   getBasketProducts,
-} from "../../../lib/basketDataAccess";
+} from "../../../lib/basketStore";
 import { getProductByID } from "../../../lib/productStore";
 
 export default async function handler(req, res) {
