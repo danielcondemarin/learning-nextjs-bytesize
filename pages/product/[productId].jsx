@@ -7,12 +7,19 @@ const ProductDetailsPage = ({ productDetails }) => {
 };
 
 export async function getServerSideProps(context) {
-  const [basketProducts, productDetails] = await Promise.all([
+  let [basketProducts, productDetails] = await Promise.all([
     getBasketProducts(),
     getProductByID(context.query.productId),
   ]);
 
+  let notFound = false;
+
+  if (!productDetails){
+    notFound = true;
+  }
+
   return {
+    notFound,
     props: { productDetails, basketProducts },
   };
 }
